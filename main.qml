@@ -22,10 +22,10 @@ ApplicationWindow {
 
     Label {
         id: clockLabel
-        y: 300
-        text: "00:00:00"
+        y: 400
+        text: "00時00分00秒"
         color: "white"
-        font.pixelSize: 400
+        font.pixelSize: 250
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -68,7 +68,8 @@ ApplicationWindow {
     Timer {
         interval: 1000; running: true; repeat: true;
         onTriggered: {
-            clockLabel.text = new Date().toLocaleTimeString()
+            var time = new Date()
+            clockLabel.text = time.getHours() + "時" + time.getMinutes() + "分" + time.getSeconds() + "秒"
             if (new Date().getSeconds() % 2 == 0) {
                 second2.play()
             } else {
