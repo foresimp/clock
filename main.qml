@@ -76,12 +76,12 @@ ApplicationWindow {
         }
     }
 
-    SoundEffect {
+    Audio {
         id: second1
         source: "second1.wav"
         volume: 0.8
     }
-    SoundEffect {
+    Audio {
         id: second2
         source: "second2.wav"
         volume: 0.8
