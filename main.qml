@@ -20,7 +20,7 @@ ApplicationWindow {
 
     Label {
         id: clockLabel
-        y: 400
+        y: (mainWindow.height - height) / 2
         text: "00時00分00秒"
         color: "white"
         font.pointSize: mainWindow.width / 10
