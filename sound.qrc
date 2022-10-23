@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>second1.wav</file>
+        <file>second2.wav</file>
+    </qresource>
+</RCC>
