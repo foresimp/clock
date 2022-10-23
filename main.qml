@@ -21,7 +21,7 @@ ApplicationWindow {
     }
 
     Timer {
-        interval: 1000; running: true; repeat: true;
+        interval: 500; running: true; repeat: true;
         onTriggered: {
             clockLabel.text = new Date().toLocaleTimeString()
             if (new Date().getSeconds() % 2 == 0) {
