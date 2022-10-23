@@ -22,10 +22,10 @@ ApplicationWindow {
 
     Label {
         id: clockLabel
-        y: 60
+        y: 300
         text: "00:00:00"
         color: "white"
-        font.pixelSize: 100
+        font.pixelSize: 400
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -43,6 +43,25 @@ ApplicationWindow {
         }
         onPressAndHold: {
             close()
+        }
+    }
+
+    RoundButton {
+        width: 30
+        height: 30
+        text: "S"
+        font.pixelSize: 20
+        x: 5
+        y: 5
+
+        onClicked: {
+            second1.muted = !second1.muted
+            second2.muted = !second2.muted
+            if (second1.muted) {
+                text = "M"
+            } else {
+                text = "S"
+            }
         }
     }
 
