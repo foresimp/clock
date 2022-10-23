@@ -6,10 +6,19 @@ import QtQuick.Window 2.3
 import QtMultimedia 5.9
 
 ApplicationWindow {
+    id: mainWindow
     width: 640
     height: 480
     visible: true
     color: "#000000"
+    Component.onCompleted: {
+        //mainWindow.showFullScreen()
+    }
+    onVisibilityChanged: {
+        if (visibility == Qt.WindowMaximized) {
+            mainWindow.showFullScreen()
+        }
+    }
 
     Label {
         id: clockLabel
@@ -18,6 +27,20 @@ ApplicationWindow {
         color: "white"
         font.pixelSize: 100
         anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    RoundButton {
+        width: 30
+        height: 30
+        text: "ー"
+        font.pixelSize: 20
+        anchors.right: parent.right
+        anchors.rightMargin: 5
+        y: 5
+
+        onClicked: {
+            mainWindow.showMinimized()
+        }
     }
 
     Timer {
