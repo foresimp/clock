@@ -23,7 +23,7 @@ ApplicationWindow {
         y: 400
         text: "00時00分00秒"
         color: "white"
-        font.pixelSize: 250
+        font.pointSize: 200
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
