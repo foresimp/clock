@@ -41,6 +41,9 @@ ApplicationWindow {
         onClicked: {
             mainWindow.showMinimized()
         }
+        onPressAndHold: {
+            close()
+        }
     }
 
     Timer {
@@ -58,11 +61,11 @@ ApplicationWindow {
     SoundEffect {
         id: second1
         source: "second1.wav"
-        volume: 0.05
+        volume: 0.2
     }
     SoundEffect {
         id: second2
         source: "second2.wav"
-        volume: 0.05
+        volume: 0.2
     }
 }
