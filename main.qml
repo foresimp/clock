@@ -11,9 +11,7 @@ ApplicationWindow {
     height: 480
     visible: true
     color: "#000000"
-    Component.onCompleted: {
-        //mainWindow.showFullScreen()
-    }
+
     onVisibilityChanged: {
         if (visibility == Qt.WindowMaximized) {
             mainWindow.showFullScreen()
@@ -81,11 +79,11 @@ ApplicationWindow {
     SoundEffect {
         id: second1
         source: "second1.wav"
-        volume: 0.2
+        volume: 0.5
     }
     SoundEffect {
         id: second2
         source: "second2.wav"
-        volume: 0.2
+        volume: 0.5
     }
 }
