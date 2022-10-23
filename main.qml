@@ -79,11 +79,11 @@ ApplicationWindow {
     SoundEffect {
         id: second1
         source: "second1.wav"
-        volume: 1
+        volume: 0.8
     }
     SoundEffect {
         id: second2
         source: "second2.wav"
-        volume: 1
+        volume: 0.8
     }
 }
