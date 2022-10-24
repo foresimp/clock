@@ -10,7 +10,7 @@ ApplicationWindow {
     width: 640
     height: 480
     visible: true
-    color: "#000000"
+    color: "black"
 
     onVisibilityChanged: {
         if (visibility == Qt.WindowMaximized) {
@@ -18,12 +18,26 @@ ApplicationWindow {
         }
     }
 
+    Component.onCompleted: {
+        update()
+    }
+
+    property bool muted: false
+    property int i: 60
+
+    Back {
+        id: back
+        width: parent.width
+        height: parent.height
+        anchors.top: parent.top
+    }
+
     Label {
         id: clockLabel
         y: (mainWindow.height - height) / 2
-        text: "00時00分00秒"
+        text: "00:00"
         color: "white"
-        font.pointSize: mainWindow.width / 10
+        font.pointSize: mainWindow.width / 5
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -53,9 +67,8 @@ ApplicationWindow {
         y: 5
 
         onClicked: {
-            second1.muted = !second1.muted
-            second2.muted = !second2.muted
-            if (second1.muted) {
+            muted = !muted
+            if (muted) {
                 text = "M"
             } else {
                 text = "S"
@@ -66,13 +79,7 @@ ApplicationWindow {
     Timer {
         interval: 1000; running: true; repeat: true;
         onTriggered: {
-            var time = new Date()
-            clockLabel.text = time.getHours() + "時" + time.getMinutes() + "分" + time.getSeconds() + "秒"
-            if (new Date().getSeconds() % 2 == 0) {
-                second2.play()
-            } else {
-                second1.play()
-            }
+            update()
         }
     }
 
@@ -85,5 +92,27 @@ ApplicationWindow {
         id: second2
         source: "second2.wav"
         volume: 0.1
+    }
+
+    function update() {
+        var time = new Date()
+        clockLabel.text = time.getHours() + ":" + time.getMinutes()
+        if (!muted) {
+            if (new Date().getSeconds() % 2 == 0) {
+                second2.play()
+            } else {
+                second1.play()
+            }
+        }
+        back.currentTime = getDayMinute()
+        if (i >= 60) {
+            back.updateBack()
+            i = 0
+        } else i++
+    }
+
+    function getDayMinute() {
+        var time = new Date()
+        return (time.getHours()) * 6 + Math.floor(time.getMinutes() / 10)
     }
 }
