@@ -101,7 +101,7 @@ ApplicationWindow {
 
     function update() {
         var time = new Date()
-        clockLabel.text = time.getHours() + ":" + time.getMinutes()
+        clockLabel.text = (time.getHours() < 10 ? "0" + time.getHours() : time.getHours())  + ":" + (time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes())
         if (!muted) {
             if (new Date().getSeconds() % 2 == 0) {
                 second2.play()

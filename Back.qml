@@ -5,59 +5,59 @@ Rectangle {
     states: [
         State {
             property int time: 30 // 05:00
-            property color color0: "#7084a5"
-            property color color1: "#ada6be"
-            property color color2: "#d4b0b5"
-            property color color3: "#7084a5"
+            property color color0: "#002378"
+            property color color1: "#162f79"
+            property color color2: "#362c2f"
+            property color color3: "#162f79"
         },
         State {
             property int time: 36 // 06:00
-            property color color0: "#7084a5"
-            property color color1: "#ada6be"
-            property color color2: "#d4b0b5"
-            property color color3: "#7084a5"
+            property color color0: "#2f24ff"
+            property color color1: "#8093ff"
+            property color color2: "#ff6b85"
+            property color color3: "#8093ff"
         },
         State {
             property int time: 42 // 07:00
-            property color color0: "#7084a5"
-            property color color1: "#ada6be"
-            property color color2: "#d4b0b5"
-            property color color3: "#7084a5"
+            property color color0: "#4464ff"
+            property color color1: "#7ab5ff"
+            property color color2: "#ffe0e8"
+            property color color3: "#7ab5ff"
         },
         State {
             property int time: 72 // 12:00
             property color color0: "#0079ff"
             property color color1: "#0091ec"
             property color color2: "#a3ddff"
-            property color color3: "#527e99"
+            property color color3: "#0091ec"
         },
         State {
             property int time: 102 // 17:00
-            property color color0: "#7084a5"
-            property color color1: "#ada6be"
-            property color color2: "#d4b0b5"
-            property color color3: "#7084a5"
+            property color color0: "#2a83c7"
+            property color color1: "#56aadf"
+            property color color2: "#fedfc3"
+            property color color3: "#56aadf"
         },
         State {
             property int time: 108 // 18:00
             property color color0: "#226ba2"
             property color color1: "#0082d7"
             property color color2: "#f98010"
-            property color color3: "#c8ceca"
+            property color color3: "#0082d7"
         },
         State {
             property int time: 114 // 19:00
-            property color color0: "#7084a5"
-            property color color1: "#ada6be"
-            property color color2: "#d4b0b5"
-            property color color3: "#7084a5"
+            property color color0: "#10324d"
+            property color color1: "#0a5687"
+            property color color2: "#586574"
+            property color color3: "#0a5687"
         },
         State {
             property int time: 144 // 00:00
-            property color color0: "#001932"
-            property color color1: "#102449"
-            property color color2: "#48399e"
-            property color color3: "#051637"
+            property color color0: "#000a14"
+            property color color1: "#0f1f3c"
+            property color color2: "#312766"
+            property color color3: "#0f1f3c"
         }
     ]
 
