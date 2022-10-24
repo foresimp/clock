@@ -4,42 +4,70 @@ Rectangle {
     id: back
     states: [
         State {
-            property int time: 36
+            property int time: 30 // 05:00
             property color color0: "#7084a5"
             property color color1: "#ada6be"
             property color color2: "#d4b0b5"
             property color color3: "#7084a5"
         },
         State {
-            property int time: 72
-            property color color0: "#527e99"
-            property color color1: "#88a5b7"
-            property color color2: "#acbdc7"
+            property int time: 36 // 06:00
+            property color color0: "#7084a5"
+            property color color1: "#ada6be"
+            property color color2: "#d4b0b5"
+            property color color3: "#7084a5"
+        },
+        State {
+            property int time: 42 // 07:00
+            property color color0: "#7084a5"
+            property color color1: "#ada6be"
+            property color color2: "#d4b0b5"
+            property color color3: "#7084a5"
+        },
+        State {
+            property int time: 72 // 12:00
+            property color color0: "#0079ff"
+            property color color1: "#0091ec"
+            property color color2: "#a3ddff"
             property color color3: "#527e99"
         },
         State {
-            property int time: 108
-            property color color0: "#c8ceca"
-            property color color1: "#eadeb9"
-            property color color2: "#e2a872"
+            property int time: 102 // 17:00
+            property color color0: "#7084a5"
+            property color color1: "#ada6be"
+            property color color2: "#d4b0b5"
+            property color color3: "#7084a5"
+        },
+        State {
+            property int time: 108 // 18:00
+            property color color0: "#226ba2"
+            property color color1: "#0082d7"
+            property color color2: "#f98010"
             property color color3: "#c8ceca"
         },
         State {
-            property int time: 144
-            property color color0: "#051637"
-            property color color1: "#1c2c52"
-            property color color2: "#5c658b"
+            property int time: 114 // 19:00
+            property color color0: "#7084a5"
+            property color color1: "#ada6be"
+            property color color2: "#d4b0b5"
+            property color color3: "#7084a5"
+        },
+        State {
+            property int time: 144 // 00:00
+            property color color0: "#001932"
+            property color color1: "#102449"
+            property color color2: "#48399e"
             property color color3: "#051637"
         }
     ]
 
-    property int currentTime
+    property int currentTime: 0
     property int maxTime: 144
-    property int nextIndex
+    property int nextIndex: 0
 
-    property int timeDiff
-    property int currentTimeDiff
-    property int preIndex
+    property int timeDiff: 0
+    property int currentTimeDiff: 0
+    property int preIndex: 0
 
     Rectangle {
         id: sky
@@ -62,8 +90,10 @@ Rectangle {
     function updateBack() {
         nextIndex = -1
         for (var i = 0; i < states.length; i++) {
-            if (states[i].time >= currentTime)
+            if (states[i].time >= currentTime){
                 nextIndex = i
+                break
+            }
         }
         if (nextIndex == -1)
             nextIndex = 0

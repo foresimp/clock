@@ -77,9 +77,14 @@ ApplicationWindow {
     }
 
     Timer {
-        interval: 1000; running: true; repeat: true;
+        interval: 200; running: true; repeat: true;
         onTriggered: {
-            update()
+            if (back.currentTime < 144)
+                back.currentTime++
+            else
+                back.currentTime = 0
+            back.updateBack()
+            //update()
         }
     }
 
