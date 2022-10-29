@@ -19,11 +19,12 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        update()
+        back.setChangeTime()
+        //back.updateBack()
     }
 
     property bool muted: false
-    property int i: 60
+    property int timeCount: 0
 
     Back {
         id: back
@@ -77,47 +78,57 @@ ApplicationWindow {
     }
 
     Timer {
-        interval: 1000; running: true; repeat: true;
+        interval: 100; running: true; repeat: true;
         onTriggered: {
-            if (back.currentTime < 144)
-                back.currentTime++
-            else
-                back.currentTime = 0
-            //back.updateBack()
             update()
         }
     }
 
     Audio {
         id: second1
-        source: "second1.wav"
+        source: "sounds/second1.wav"
         volume: 0.1
     }
     Audio {
         id: second2
-        source: "second2.wav"
+        source: "sounds/second2.wav"
         volume: 0.1
     }
 
     function update() {
+        if (timeCount % 10 == 0) {
+            updateTime()
+        }
+        back.currentTime = getDayDeci()
+        if (timeCount % 600 == 0) {
+            back.updateBack()
+            timeCount = 0
+        } else timeCount++
+        back.updateSun()
+    }
+    function updateTest() {
+        if (back.currentTime < back.maxTime)
+            back.currentTime += 50
+        else
+            back.currentTime = 0
+        back.updateBack()
+        back.updateSun()
+    }
+
+    function updateTime() {
         var time = new Date()
         clockLabel.text = (time.getHours() < 10 ? "0" + time.getHours() : time.getHours())  + ":" + (time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes())
         if (!muted) {
-            if (new Date().getSeconds() % 2 == 0) {
+            if (time.getSeconds() % 2 == 0) {
                 second2.play()
             } else {
                 second1.play()
             }
         }
-        back.currentTime = getDayMinute()
-        if (i >= 60) {
-            back.updateBack()
-            i = 0
-        } else i++
     }
 
-    function getDayMinute() {
+    function getDayDeci() {
         var time = new Date()
-        return (time.getHours()) * 6 + Math.floor(time.getMinutes() / 10)
+        return time.getHours() * 36000 + time.getMinutes() * 600 + time.getSeconds() * 10
     }
 }
